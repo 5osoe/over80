@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack PSD | Extract Layers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+    <div class="background-grid"></div>
+    <div class="scan-line"></div>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1 class="logo">HACK <span class="accent">PSD</span></h1>
+            <p class="subtitle">Extract PSD Layers Instantly</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section id="upload-area" class="upload-zone">
+            <input type="file" id="file-input" accept=".psd" hidden>
+            <div class="upload-content">
+                <div class="icon-box">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                </div>
+                <h3>Drop PSD File</h3>
+                <p class="meta">or click to browse</p>
+                <div id="progress-container" class="hidden">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <span id="progress-text">0%</span>
+                </div>
+                <div id="loading-spinner" class="spinner hidden"></div>
+                <p id="status-text" class="status-text"></p>
+            </div>
+        </section>
+
+        <!-- Controls Section (Hidden initially) -->
+        <section id="controls-section" class="controls hidden">
+            <div class="control-group">
+                <span id="layer-count">0 Layers Found</span>
+                <button id="select-all-btn" class="btn-text">Select All</button>
+            </div>
+            
+            <div class="control-group right">
+                <div class="toggle-switch">
+                    <input type="checkbox" id="format-toggle">
+                    <label for="format-toggle" class="toggle-label">
+                        <span class="toggle-text">JPG</span>
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text">PNG</span>
+                    </label>
+                </div>
+                <button id="export-btn" class="btn-primary">
+                    Download Selected
+                </button>
+            </div>
+        </section>
+
+        <!-- Layers Grid -->
+        <section id="layers-grid" class="layers-grid"></section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
